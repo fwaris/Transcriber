@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "Transcriber.Client": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "dotnetRunMessages": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:60662;http://localhost:60663"
+    }
+  }
+}
