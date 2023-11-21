@@ -50,6 +50,7 @@ module Program =
     let main args =
         WebHost
             .CreateDefaultBuilder(args)
+            //.ConfigureKestrel(fun ctx opts -> opts.ListenAnyIP(5000)) //need to uncomment for production
             .UseStaticWebAssets()
             .UseStartup<Startup>()
             .Build()

@@ -1,0 +1,12 @@
+ 
+ LD_LIBRARY_PATH=/home/dwspradmin/apps/publish/runtimes/linux-x64/ ./Transcriber.Server
+
+ WHISPER_CUBLAS=1 make libwhisper.so -j
+
+ cp ./libwhisper.so /home/dwspradmin/apps/publish/runtimes/linux-x64/whisper.so
+
+sudo cp ./WhisperTranscriber.service /etc/systemd/system/WhisperTranscriber.service
+
+sudo systemctl daemon-reload
+
+sudo servicectl status WhisperTranscriber.service
