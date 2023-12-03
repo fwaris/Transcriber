@@ -10,3 +10,9 @@ sudo cp ./WhisperTranscriber.service /etc/systemd/system/WhisperTranscriber.serv
 sudo systemctl daemon-reload
 
 sudo servicectl status WhisperTranscriber.service
+
+//commands for dotnet fsi usage on linux
+
+cp whisper.so /home/dwspradmin/.nuget/packages/whisper.net/1.4.7/lib/net6.0/runtimes/linux-x64
+Transcribe.converToWave "video.mp4" "audio.wav"
+Transcribe.transcribe "audio.wav" "text.json" |> Async.Start
