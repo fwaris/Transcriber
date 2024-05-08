@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Transcriber.Server": {
+    "https": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

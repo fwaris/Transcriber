@@ -37,21 +37,24 @@ module Whisper =
 
     let converToWave (inputFile:string) =        
         let path = Path.GetTempFileName()
-        let r = 
-            FFMpegArguments
-                .FromFileInput(inputFile)
-                .OutputToFile($"{path}", true,
-                    fun options -> 
-                        options
-                            .ForceFormat("wav")
-                            .WithAudioSamplingRate(16000)
-                        |>ignore)
-                .ProcessSynchronously()
-        if r then 
-            path
-        else
-            failwith "unable to convert to wav file"
-
+        try 
+            let r = 
+                FFMpegArguments
+                    .FromFileInput(inputFile)
+                    .OutputToFile($"{path}", true,
+                        fun options -> 
+                            options
+                                .ForceFormat("wav")
+                                .WithAudioSamplingRate(16000)
+                            |>ignore)
+                    .ProcessSynchronously()
+            if r then 
+                path
+            else
+                failwith "unable to convert to wav file"
+        with ex -> 
+            printfn "%A" ex.Message
+            raise ex
 
     let transcribe (contentRoot:string) (mp3File:string) = 
         async {

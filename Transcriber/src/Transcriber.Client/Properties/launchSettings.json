@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Transcriber.Client": {
+    "https": {
       "commandName": "Project",
       "launchBrowser": true,
       "dotnetRunMessages": true,
